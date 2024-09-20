@@ -22,7 +22,7 @@ void Setup()
 }
 void Draw()
 {
-	system("cls"); 
+	system("cls"); //system("clear");
 	for (int i = 0; i < width+2; i++)
 		cout << "#";
 	cout << endl;
@@ -54,7 +54,33 @@ void Draw()
 				
 
 			if (j == width - 1)
-				c...;
+				cout << "#";
+		}
+		cout << endl;
+	}
+
+	for (int i = 0; i < width+2; i++)
+		cout << "#";
+	cout << endl;
+	cout << "Score:" << score << endl;
+}
+void Input()
+{
+	if (_kbhit())
+	{
+		switch (_getch())
+		{
+		case 'a':
+			dir = LEFT;
+			break;
+		case 'd':
+			dir = RIGHT;
+			break;
+		case 'w':
+			dir = UP;
+			break;
+		case 's':
+			dir = DOWN;
 			break;
 		case 'x':
 			gameOver = true;
@@ -95,6 +121,8 @@ void Logic()
 	default:
 		break;
 	}
+	//if (x > width || x < 0 || y > height || y < 0)
+	//	gameOver = true;
 	if (x >= width) x = 0; else if (x < 0) x = width - 1;
 	if (y >= height) y = 0; else if (y < 0) y = height - 1;
 
